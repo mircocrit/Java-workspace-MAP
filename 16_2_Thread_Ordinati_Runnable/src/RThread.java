@@ -1,4 +1,3 @@
-package esempioThread;
 
 class RThread implements Runnable{
 	private int counter=1;			//partenza da 1
@@ -20,16 +19,12 @@ class RThread implements Runnable{
 		System.out.println("Thread numero " + threadId);
 		threadId++;
 		while(true){
-			//System.out.println( param +" + "+ (counter) );
 			System.out.println( param +" + "+ (counter) + " = " + (param+counter) );
 			counter++;
 			if(counter > limit) {
 				try {
 					t.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				} catch (InterruptedException e) {}
 				return;
 			}
 		}

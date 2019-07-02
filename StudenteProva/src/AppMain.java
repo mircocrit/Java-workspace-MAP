@@ -10,7 +10,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class AppMain {
-	public static void descrizioneStudente(Studente s){s.descrizione();}
+
+
 	public static Studente getStudente(Studente s){return s;}
 	public static void main(String[] args) {	
 	

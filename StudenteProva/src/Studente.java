@@ -10,7 +10,7 @@ public class Studente implements Comparator<Studente>,Cloneable, Comparable<Stud
 	Studente(){
 		setMatricola(null);
 		setNomeECognome(null);
-		eta = 0;	//	
+		eta = 0;	
 	}
 	Studente(String matricola, String NomeECognome, int eta){
 		this.setMatricola(matricola);

@@ -10,9 +10,12 @@ class Esame implements Serializable{
 		this.setNome(nome);
 		this.setVoto(voto);	
 		}
-	public int getVoto() {	return voto;}	
-	public void setVoto(int voto) {	this.voto = voto;}
+	
+	public int getVoto() {	return voto;}
 	public String getNome() {	return nome;}
+	
+	public void setVoto(int voto) {	this.voto = voto;}
 	public void setNome(String nome) {	this.nome = nome;}
-
+	
+	public void print() {	System.out.println(	this.getNome()+ "  " + this.getVoto());}
 } 

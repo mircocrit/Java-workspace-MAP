@@ -18,7 +18,7 @@ public class Somma {
 	public Somma() {								//costruttore
 		f.setLayout(new FlowLayout());																//f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		f.setSize(500, 500);
-		
+	
 		//sum.setBounds(450, 50, 90, 30);		
 		sum.addMouseListener(new MouseSum(this));													//error.setVisible(false);
 		f.add(num1); 
@@ -26,7 +26,7 @@ public class Somma {
 		f.add(sum);																					//f.add(error);
 		f.add(res);
 		f.setVisible(true);
-		}
+	}
 	
 	public static void main(String[] args) {		
 		Somma e = new Somma();

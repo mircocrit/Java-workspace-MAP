@@ -12,7 +12,11 @@ public class List {
 	List(ArrayList<Studente> a){	this.a= a;}
 
 	public void add(Studente s) { a.add(s);}
-
+	
+	
+	public int size() { return a.size();}
+	public boolean isEmpty() {return a.isEmpty();}
+	
 	public void sortAble() { 
 		System.out.println("Comparable");
 		a.sort(null);}
