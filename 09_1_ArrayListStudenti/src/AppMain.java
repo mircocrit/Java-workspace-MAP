@@ -17,6 +17,9 @@ public class AppMain {
 		a.add(s4);
 		a.add(s3);
 		
+		System.out.println(a.size());
+		System.out.println(a.isEmpty());
+		
 		a.stampaList();
 		a.sortAble();		//comparable
 		//a.sortAtor();		//comparator
