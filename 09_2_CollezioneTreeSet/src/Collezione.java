@@ -9,8 +9,7 @@ public class Collezione {
 	void add(Elemento e) { t.add(e);}
 
 	@Override
-	protected
-	Collezione clone() {
+	protected Collezione clone() {
 		return new Collezione ( (TreeSet<Elemento>) t.clone());
 	}
 	//si ordina da solo

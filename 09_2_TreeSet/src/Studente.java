@@ -1,4 +1,3 @@
-
 import java.util.Comparator;
 
 public class Studente implements Comparable<Studente>,Cloneable{ //, Comparator<Studente> {
@@ -7,10 +6,11 @@ public class Studente implements Comparable<Studente>,Cloneable{ //, Comparator<
 	private int matricola;
 	
 	public String getNome() {return nome;}
-	public void setNome(String nome) {this.nome = nome;}
 	public String getCognome() {return cognome;}
-	public void setCognome(String cognome) {this.cognome = cognome;}
 	public int getMatricola() {return matricola;}
+	
+	public void setNome(String nome) {this.nome = nome;}
+	public void setCognome(String cognome) {this.cognome = cognome;}
 	public void setMatricola(int matricola) {this.matricola = matricola;}
 	
 	 Studente(int matr, String nome, String cognome) {

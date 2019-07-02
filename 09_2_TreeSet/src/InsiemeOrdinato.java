@@ -12,9 +12,7 @@ public class InsiemeOrdinato {
 	public InsiemeOrdinato(TreeSet<Studente> tree) {	treeSet= tree;}
 
 	void add(Studente s) {  treeSet.add(s);}
-	
-	// gia ordinato
-	
+
 	boolean contains(Studente s) {	return treeSet.contains(s);}
 	boolean remove(Studente s) {	return treeSet.remove(s);}
 	
@@ -24,6 +22,8 @@ public class InsiemeOrdinato {
 	protected InsiemeOrdinato clone(){
 		return new InsiemeOrdinato(		(TreeSet<Studente>)	 treeSet.clone());
 	}
+	
+	// gia ordinato
 	
 	void print() {
 		Iterator<Studente> e = treeSet.iterator();
