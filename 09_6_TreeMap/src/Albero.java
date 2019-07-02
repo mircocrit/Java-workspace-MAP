@@ -11,78 +11,33 @@ import java.util.TreeMap;
 
 
 public class Albero {
-	private TreeMap<String, Studente> treeMap;
-	//public static void descrizioneStudente(Studente s){	s.descrizione();}
-	//public static Studente getStudente(Studente s){return s;}
+	private TreeMap< String, Studente > tree;
 	
-	Albero(){
-		treeMap= new TreeMap<String, Studente>();
-	}
-	Albero(TreeMap<String, Studente> treeMap){
-		this.treeMap= treeMap;
-	}		
+	Albero(){	tree= new TreeMap<String, Studente>();}
+	Albero(TreeMap<String, Studente> treeMap){	this.tree= treeMap;}		
 	
-	void put(String str, Studente s) {
-		this.treeMap.put(str,s);
-	}
+	void put(String str, Studente s) {	this.tree.put(str,s);}
 	
-	int size() {
-		return treeMap.size();
-	}
-	boolean isEmpty() {
-		return treeMap.isEmpty();
-	}
+	int size() {		return tree.size();}
+	boolean isEmpty() {	return tree.isEmpty();}
+	boolean containsKey(String key) {	return tree.containsKey(key);}
 	
-	boolean containsK(String key) {
-		return treeMap.containsKey(key);
-		
-	}
 	@Override
-	protected
-	Albero clone(){
-		//(HashMap<String, Studente>) ;
-		return new Albero((TreeMap<String, Studente>)treeMap.clone());
+	protected Albero clone(){
+		return new Albero(( TreeMap  <String, Studente> )tree.clone());
 	}
 	
-	void sort() {
-		//treeMap2.sort(null);
-		//treeMap2.sort(new StudenteElementare());
-	}
-	
-	void printTree() {
-		Iterator e1 = treeMap.entrySet().iterator();
-		//System.out.println("Stampa treeMap");
-		while(e1.hasNext()){
-			Map.Entry me = (Map.Entry)	e1.next();
-			
-			System.out.print("Key is: "+me.getKey() + "		&		");
-		    System.out.println("Value is: "+ ((Studente) me.getValue()).getNomeECognome());
+	void print() {
+		Iterator e = tree.entrySet().iterator();
+		System.out.println("");
+		while(e.hasNext()){
+			Map.Entry entry = (Map.Entry)	e.next();
+			System.out.print(entry.getKey() + "  ");
+
+		    //System.out.println("Value : ");
+		    ((Studente) entry.getValue()).print();
 		}
 		System.out.println("");
 	}
-	public static void main(String[] args) {	
-		Albero a = new Albero();
-		
-		Studente s1= new Studente("Ninny Sterl",22);
-		Studente s2= new Studente("Cristian Miccolis", 18);
-		Studente s3= new Studente("Angela Sterl",21);
-		
-		a.put("676716",s1);
-		a.put("676720",s2);
-		a.put("676718",s3);
-
-		/////prove stampa/////
-		System.out.println(a.containsK("676718"));
-		System.out.println(a.size());
-		System.out.println(a.isEmpty());
-		
-		///////////////clone//////////////
-		Albero a2 = a.clone();
-		a2.printTree();
-		a.printTree();
-
-		
-		
-		a2.sort();										//se come argometto si mette null viene utilizzato Comparale
-	}
+	
 }

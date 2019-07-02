@@ -1,34 +1,40 @@
+
 import java.util.Comparator;
-import java.util.*;
 
-//STUDENTE CLASSE CLONABILE CON COMPARATOR
-public class Studente implements Comparator<Studente>,Cloneable,Comparable<Studente>{		
-	protected String matricola;
-	protected String NomeECognome;
-	protected int eta;
+public class Studente implements Comparable<Studente>,Cloneable{ //, Comparator<Studente> {
+	private String nome;
+	private String cognome;
+	private int matricola;
 	
-	Studente(){
-		setMatricola(null);
-		setNomeECognome(null);
-		eta = 0;	//	
+	public String getNome() {return nome;}
+	public void setNome(String nome) {this.nome = nome;}
+	public String getCognome() {return cognome;}
+	public void setCognome(String cognome) {this.cognome = cognome;}
+	public int getMatricola() {return matricola;}
+	public void setMatricola(int matricola) {this.matricola = matricola;}
+	
+	 Studente(int matr, String nome, String cognome) {
+		this.matricola=matr;
+		this.nome=nome;
+		this.cognome=cognome;
 	}
-	Studente(String matricola, String NomeECognome, int eta){
-		this.setMatricola(matricola);
-		this.setNomeECognome(NomeECognome);
-		this.setEta(eta);
+	 
+	 Studente() {
+		this.matricola=0;
+		this.nome=null;
+		this.cognome=null;
 	}
-
-	public String getMatricola() {return matricola;}
-	public String getNomeECognome() {return NomeECognome;}
-	public int getEta(){	return eta;	}
+	 
+	public boolean equals(Studente s) {
+		if(s.matricola== this.matricola)			return true;
+		else										return false;
+	}
+	public void print() {
+		System.out.println(this.matricola +" "+ this.nome + " " + this.cognome+ " ");		
+	}
 	
-	public void setMatricola(String matricola) {this.matricola = matricola;}
-	public void setNomeECognome(String nomeECognome) {NomeECognome = nomeECognome;}
-	public void setEta(int eta){this.eta = eta;}
+////////////////////////////////////////
 	
-	public void print(){System.out.println(matricola+", "+NomeECognome+", "+eta);}
-	public void descrizione(){System.out.println("Studente");}
-	///////////////////////////////////
 	public Object clone(){
 		Object o = null; 
 		try {
@@ -37,11 +43,20 @@ public class Studente implements Comparator<Studente>,Cloneable,Comparable<Stude
 		catch (CloneNotSupportedException e) {e.printStackTrace();}
 		return o;
 	}
-	////////////////////////////////////////
+////////////////////////////////////////	
+	@Override
+	public int compareTo(Studente o) { 
+		//System.out.println("Comparable");
+		if(matricola < o.getMatricola())		return -1;													//NomeECognome.compareTo(o.getNomeECognome()) < 0)		
+		else if(matricola == o.getMatricola())	return 0;												//NomeECognome.compareTo(o.getNomeECognome()) == 0)		
+		else									return 1;		
+	}
+	/*
 	@Override
 	public int compare(Studente o1, Studente o2) {	
-		if(o1.getEta() < o2.getEta())			return -1;
-		else if(o1.getEta() == o2.getEta())		return 0;
+		//System.out.println("Comparator");
+		if(o1.getMatricola() < o2.getMatricola())			return -1;
+		else if(o1.getMatricola() == o2.getMatricola())		return 0;
 		else									return 1;
 	}
 	
@@ -50,16 +65,5 @@ public class Studente implements Comparator<Studente>,Cloneable,Comparable<Stude
 		//return (this.matricola.compareTo(s.matricola) == 0);
 		return (this.matricola == s.getMatricola());	
 	}
-	
-	
-	
-	
-	///////////////////////////////////////////////////
-	@Override
-	public int compareTo(Studente o) { 
-		if(eta < o.eta)		return -1;													//NomeECognome.compareTo(o.getNomeECognome()) < 0)		
-		else if(eta == o.eta)	return 0;												//NomeECognome.compareTo(o.getNomeECognome()) == 0)		
-		else	return 1;		
-	}	
-
+	*/
 }

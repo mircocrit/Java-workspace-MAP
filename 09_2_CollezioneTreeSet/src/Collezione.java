@@ -5,6 +5,7 @@ public class Collezione {
 
 	Collezione() { t= new TreeSet<Elemento>();};
 	Collezione(TreeSet<Elemento> t) { this.t= t;};
+	
 	void add(Elemento e) { t.add(e);}
 
 	@Override
@@ -14,21 +15,9 @@ public class Collezione {
 	}
 	//si ordina da solo
 	
-	void stampaCollezione() {		
+	void print() {	
 		Iterator<Elemento> e = t.iterator();
 		while(e.hasNext())
-			System.out.println(e.next().getValue());
+			e.next().print();
 	}
-	
-	public static void main(String [] args) {
-		Collezione c = new Collezione();
-		c.add(	new Elemento("wqe", 12)	);
-		c.add(	new Elemento("dqw",23)	);
-		c.add(	new Elemento("qsfae",13)	);
-		c.add(	new Elemento("ssfdqe",11)	);
-		//si ordina da solo
-		c.stampaCollezione();
-	}
-	
-	
 }

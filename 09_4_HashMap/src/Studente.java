@@ -1,30 +1,37 @@
+
 import java.util.Comparator;
-import java.util.*;
 
-//STUDENTE CLASSE CLONABILE CON COMPARATOR
-public class Studente implements Comparable<Studente>,Cloneable,Comparator<Studente>{		
-	protected String NomeECognome;
-	protected int eta;
+public class Studente implements Comparable<Studente>,Cloneable{ //, Comparator<Studente> {
+	private String nome;
+	private String cognome;
+	private int eta;
 	
-	Studente(){
-		setNomeECognome(null);
-		eta = 0;	
+	public String getNome() {return nome;}
+	public void setNome(String nome) {this.nome = nome;}
+	public String getCognome() {return cognome;}
+	public void setCognome(String cognome) {this.cognome = cognome;}
+	public int getEta() {return eta;}
+	public void setEta(int matricola) {this.eta = eta;}
+	
+	 Studente(String nome, String cognome,int eta) {
+		this.eta=eta;
+		this.nome=nome;
+		this.cognome=cognome;
 	}
-	Studente( String NomeECognome, int eta){
-		this.setNomeECognome(NomeECognome);
-		this.setEta(eta);
+	 
+	 Studente() {
+		this.eta=0;
+		this.nome=null;
+		this.cognome=null;
 	}
+	 
 
-	public String getNomeECognome() {return NomeECognome;}
-	public int getEta(){	return eta;	}
+	public void print() {
+		System.out.println(this.nome + " " + this.cognome+ " " + this.eta);		
+	}
 	
-
-	public void setNomeECognome(String nomeECognome) {NomeECognome = nomeECognome;}
-	public void setEta(int eta){this.eta = eta;}
+////////////////////////////////////////
 	
-	public void print(){System.out.println(NomeECognome+", "+eta);}
-	public void descrizione(){System.out.println("Studente");}
-	///////////////////////////////////
 	public Object clone(){
 		Object o = null; 
 		try {
@@ -33,31 +40,27 @@ public class Studente implements Comparable<Studente>,Cloneable,Comparator<Stude
 		catch (CloneNotSupportedException e) {e.printStackTrace();}
 		return o;
 	}
-	////////////////////////////////////////
-
-	
-	
-	
-	
-	 @Override		
+////////////////////////////////////////	
+	@Override
 	public int compareTo(Studente o) { 
-		if(eta < o.eta)		return -1;													//NomeECognome.compareTo(o.getNomeECognome()) < 0)		
-		else if(eta == o.eta)	return 0;												//NomeECognome.compareTo(o.getNomeECognome()) == 0)		
-		else	return 1;		
-	}	
-	 
-	 public boolean equals(Object o) {
-		Studente s = (Studente)o;
-		//return (this.matricola.compareTo(s.matricola) == 0);
-		return (this.NomeECognome == s.NomeECognome);	
-		}
-	 
-	////////////////////////////////////////
+		//System.out.println("Comparable");
+		if(eta < o.getEta())		return -1;													//NomeECognome.compareTo(o.getNomeECognome()) < 0)		
+		else if(eta == o.getEta())	return 0;												//NomeECognome.compareTo(o.getNomeECognome()) == 0)		
+		else						return 1;		
+	}
+	/*
 	@Override
 	public int compare(Studente o1, Studente o2) {	
-	if(o1.eta < o2.eta)		return -1;													//NomeECognome.compareTo(o.getNomeECognome()) < 0)		
-		else if(o1.eta == o2.eta)	return 0;												//NomeECognome.compareTo(o.getNomeECognome()) == 0)		
-		else	return 1;	
+		//System.out.println("Comparator");
+		if(o1.getMatricola() < o2.getMatricola())			return -1;
+		else if(o1.getMatricola() == o2.getMatricola())		return 0;
+		else									return 1;
 	}
-	 
+	
+	public boolean equals(Object o) {
+		Studente s = (Studente)o;
+		//return (this.matricola.compareTo(s.matricola) == 0);
+		return (this.matricola == s.getMatricola());	
+	}
+	*/
 }

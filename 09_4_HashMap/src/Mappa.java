@@ -5,86 +5,44 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-
-
+import java.util.Map;
 
 public class Mappa {
-	private HashMap<String, Studente> hashMap;
+	private HashMap<String, Studente> hash;
 		
-	Mappa(){
-		hashMap= new HashMap<String, Studente>();
-	}
-	Mappa(HashMap<String, Studente> hashMap){
-		this.hashMap= hashMap;
-	}
+	Mappa(){	hash= new HashMap<String, Studente>();}
+	Mappa(HashMap<String, Studente> hashMap){	this.hash= hashMap;}
 	
-	void put(String str, Studente s) {
-		hashMap.put(str,s);
-	}
+	void put(String str, Studente s) {	hash.put(str,s);}
+	Studente get(String key) { return hash.get(key);}
 	
-	int size() {
-		return hashMap.size();
-	}
+	int size() {	return hash.size();}
+	boolean isEmpty() {	return hash.isEmpty();}
 	
-	boolean isEmpty() {
-		return hashMap.isEmpty();
-	}
+	boolean containsKey(String key) {	return hash.containsKey(key);}
+	void remove(String s) {	hash.remove(s);}
 	
-	boolean containsK(String key) {
-		return hashMap.containsKey(key);
-	}
 	@Override
-	protected
-	Mappa clone(){
-		//(HashMap<String, Studente>) ;
-		return new Mappa((HashMap<String, Studente>)hashMap.clone());
+	protected Mappa clone(){
+		return new Mappa((HashMap < String, Studente >) hash.clone());
 	}
-	
-	Studente getter(String key) {
-		return hashMap.get(key);
-	}
-	void printMap() {
-		System.out.println(hashMap.keySet());
+
+
+	void print() {
 		System.out.println("");
-		Iterator<  HashMap.Entry<String, Studente>  > e = hashMap.entrySet().iterator();
+		Iterator e= hash.entrySet().iterator();				//Iterator<  HashMap.Entry<String, Studente>  > e = hash.entrySet().iterator();
 		while(e.hasNext()){
-			Studente temp = e.next().getValue();
-			temp.print();
-		
+			Map.Entry entry = (Map.Entry)	e.next();
+			System.out.print(entry.getKey() + "  ");
+
+		    ((Studente) entry.getValue()).print();
 		}
 		System.out.println("");
 	}
-	void sort() {}
-	void remove(String s) {
-			hashMap.remove(s);
-	}
+	
+	
+	
 
 	
-	public static void main(String[] args) {	
-		Studente s1 = new Studente("Ninny Sterlicchio", 22);
-		Studente s2 = new Studente("Lucia Scardigno",21);
-		Studente s3 = new Studente("Mirco Sipone",23);
-		Mappa map1 = new Mappa();
-		map1.put("676716", s1);
-		map1.put("676718",s2);
-		map1.put("676719",s3);
-		map1.containsK("676716");
-		/////prove stampa/////
-		map1.getter("676716").print();
-		
-		Mappa map2= map1.clone();
-		map1.remove("676716");
-		map1.printMap();
-		//map1.sort();
-		
-		///////////////clone//////////////
-		//HashMap<String,Studente> hashMap2 = new HashMap<String,Studente>();
-		//hashMap2.put(new String("676716"),(Studente) s1.clone());
-		//hashMap2.put(new String("675716"),(Studente) s2.clone());
-		
-		map2.printMap();
-		
-
-		
-	}
+	
 }

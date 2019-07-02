@@ -1,7 +1,7 @@
 
 import java.util.Comparator;
 
-public class Studente implements Comparator<Studente>,Cloneable, Comparable<Studente>  {
+public class Studente implements Comparable<Studente>,Cloneable{ //, Comparator<Studente> {
 	private String nome;
 	private String cognome;
 	private int matricola;
@@ -20,15 +20,14 @@ public class Studente implements Comparator<Studente>,Cloneable, Comparable<Stud
 	}
 	 
 	 Studente() {
-			this.matricola=0;
-			this.nome=null;
-			this.cognome=null;
-		}
+		this.matricola=0;
+		this.nome=null;
+		this.cognome=null;
+	}
+	 
 	public boolean equals(Studente s) {
-		if(s.matricola== this.matricola)
-			return true;
-		else
-			return false;
+		if(s.matricola== this.matricola)			return true;
+		else										return false;
 	}
 	public void print() {
 		System.out.println(this.matricola +" "+ this.nome + " " + this.cognome+ " ");		
@@ -43,7 +42,15 @@ public class Studente implements Comparator<Studente>,Cloneable, Comparable<Stud
 		catch (CloneNotSupportedException e) {e.printStackTrace();}
 		return o;
 	}
-	
+////////////////////////////////////////	
+	@Override
+	public int compareTo(Studente o) { 
+		//System.out.println("Comparable");
+		if(matricola < o.getMatricola())		return -1;													//NomeECognome.compareTo(o.getNomeECognome()) < 0)		
+		else if(matricola == o.getMatricola())	return 0;												//NomeECognome.compareTo(o.getNomeECognome()) == 0)		
+		else									return 1;		
+	}
+	/*
 	@Override
 	public int compare(Studente o1, Studente o2) {	
 		//System.out.println("Comparator");
@@ -57,14 +64,5 @@ public class Studente implements Comparator<Studente>,Cloneable, Comparable<Stud
 		//return (this.matricola.compareTo(s.matricola) == 0);
 		return (this.matricola == s.getMatricola());	
 	}
-	
-	@Override
-	public int compareTo(Studente o) { 
-		//System.out.println("Comparable");
-		if(matricola < o.getMatricola())		return -1;													//NomeECognome.compareTo(o.getNomeECognome()) < 0)		
-		else if(matricola == o.getMatricola())	return 0;												//NomeECognome.compareTo(o.getNomeECognome()) == 0)		
-		else	return 1;		
-	}
-	
-	
+	*/
 }

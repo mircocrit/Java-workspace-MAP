@@ -12,19 +12,22 @@ public class Studente implements Serializable {
 	private String cognome;
 	private List<Esame> esami = new ArrayList<Esame>();
 	
-	public int getMatricola() {		return matricola;}
-	public void setMatricola(int matricola) {	this.matricola = matricola;}
-	public String getNome() {	return nome;}
-	public void setNome(String nome) {	this.nome = nome;}
-	public String getCognome() {	return cognome;}
-	public void setCognome(String cognome) {	this.cognome = cognome;}
+	public int getMatricola() {			return matricola;}
+	public String getNome() {			return nome;}
+	public String getCognome() {		return cognome;}
 	public List<Esame> getEsami() {		return esami;}
+	
+	public void setMatricola(int matricola) {	this.matricola = matricola;}
+	public void setNome(String nome) {			this.nome = nome;}
+	public void setCognome(String cognome) {	this.cognome = cognome;}
 	public void setEsami(List<Esame> esami) {	this.esami = esami;}
+	
 	
 	public void setList() throws IOException {
 		//Esame e = new Esame();
 		System.out.println("");
 		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+		
 		while(true) {
 			Esame e = new Esame();
 			System.out.println("nome esame: ");
@@ -50,13 +53,12 @@ public class Studente implements Serializable {
 		System.out.println("cognome: " + this.cognome);
 		
 		esami.sort(null);
-		//Iterator<Esame> e = esami.iterator();
+		Iterator<Esame> e = esami.iterator();
 		System.out.println("");
-		for(int i=0; i<esami.size();i++)	esami.get(i).print();
-		//while(e.hasNext()) {
-		//	Esame temp= new Esame();
-		//	e.next().print();
-		//}
+		//for(int i=0; i<esami.size();i++)	esami.get(i).print();
+		while(e.hasNext()) {
+			e.next().print();
+		}
 	}
 	
 }
