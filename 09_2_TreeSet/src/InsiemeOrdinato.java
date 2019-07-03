@@ -14,7 +14,7 @@ public class InsiemeOrdinato {
 	void add(Studente s) {  treeSet.add(s);}
 
 	boolean contains(Studente s) {	return treeSet.contains(s);}
-	boolean remove(Studente s) {	return treeSet.remove(s);}
+	void remove(Studente s) {	 treeSet.remove(s);}
 	
 	int size() { 					return treeSet.size();}
 	boolean isEmpty() {				return treeSet.isEmpty();}

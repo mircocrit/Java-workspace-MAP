@@ -21,7 +21,7 @@ public class ClasseArray {
 
 	void print() {
 		for(int i = 0; i < studenti.length; i++)
-			System.out.println(studenti[i].getMatricola()+","+studenti[i].getNome()+","+studenti[i].getCognome());
+			studenti[i].print();
 		System.out.println("");
 	}
 	

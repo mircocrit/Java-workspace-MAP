@@ -2,23 +2,23 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class ListaCollegata {
-	private LinkedList<Studente> ll;
+	private LinkedList<Studente> l;
 	
-	ListaCollegata(){ll= new LinkedList<Studente>();};
-	ListaCollegata(LinkedList<Studente> ll){this.ll=ll;};
+	ListaCollegata(){l= new LinkedList<Studente>();};
+	ListaCollegata(LinkedList<Studente> ll){this.l=ll;};
 	
-	public void add(Studente s) {	ll.add(s);}
+	public void add(Studente s) {	l.add(s);}
 
-	public int size () { return ll.size();}
-	public boolean isEmpty() { return ll.isEmpty();}
+	public int size () { return l.size();}
+	public boolean isEmpty() { return l.isEmpty();}
 	
-	public Studente elementAtIndex(int i) {return ll.get(i);}
+	public Studente elementAtIndex(int i) {return l.get(i);}
 	
-	public void sortAble() {ll.sort(null);}
+	public void sortAble() {l.sort(null);}
 	//public void sortAtor() {ll.sort (new Studente());}
 	
 	public void print() {
-		Iterator<Studente> e = ll.iterator();
+		Iterator<Studente> e = l.iterator();
 		System.out.println("");
 		while(e.hasNext())
 			e.next().print();
