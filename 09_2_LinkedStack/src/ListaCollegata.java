@@ -1,5 +1,6 @@
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.TreeSet;
 
 public class ListaCollegata {
 	private LinkedList<Studente> l;
@@ -24,10 +25,8 @@ public class ListaCollegata {
 			e.next().print();
 		System.out.println("");
 	 }
-	 
-	 /*
-		///////////////clone//////////////
-		LinkedList<Studente> ll2 = new LinkedList<Studente>();
-		ll2.add((Studente) s1.clone());
-	*/
+	protected ListaCollegata clone(){
+		return new ListaCollegata(		( LinkedList<Studente> )	 l.clone());
+	}
+
 	}
